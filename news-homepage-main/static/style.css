@@ -68,7 +68,6 @@ section{
   width: 100%;
   top: 0;
   left: 0;
-  background-color: hsla(233, 8%, 79%, 0.69);
   transition: 200ms;
 }
 
@@ -262,7 +261,7 @@ main{
     display: flex;
     margin: 0;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   .nav-list{
