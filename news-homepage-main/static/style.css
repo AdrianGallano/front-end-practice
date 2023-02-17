@@ -4,6 +4,7 @@
 :root{
 
   --off-white: hsl(36, 100%, 99%);
+  --off-white-opac-50: rgba(255, 253, 250, 0.50);
   --grayish-blue: hsl(233, 8%, 79%);
   --dark-grayish-blue: hsl(236, 13%, 42%);
   --very-dark-blue: hsl(240, 100%, 5%);
@@ -16,7 +17,6 @@
 body{
   font-family: 'Rubik', sans-serif;
   color: var(--very-dark-blue);
-
 }
 
 *{
@@ -34,11 +34,16 @@ p{
 /* navigation */
 
 header{
+  position: sticky;
+  top: 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1.3rem 1.3rem;
+  background-color: transparent;
+  backdrop-filter: blur(8px);
+  transition: 200ms;
 }
 
 section{
@@ -48,22 +53,23 @@ section{
 #nav-button{
   cursor: pointer;
   transform: rotateZ(0deg);
-  transition: 300ms;
+  transition: 200ms;
 }
 
 #close-bar{
   cursor: pointer;
   transform: rotateZ(0deg);
-  transition: 300ms;
+  transition: 200ms;
 }
 
 #navigation{
-  position: absolute;
-  height: 100%;
+  position: fixed;
+  height: 100vh;
   width: 100%;
   top: 0;
   left: 0;
   background-color: hsla(233, 8%, 79%, 0.69);
+  transition: 200ms;
 }
 
 #bar-container{
@@ -72,6 +78,10 @@ section{
   float: right;
   width: 70%;
   padding: 1.8rem 1.4rem;
+  animation-name: slide;
+  animation-duration: 200ms;
+  transform: translateX(100%); 
+  transition: 200ms ease-out;
 }
 
 #close-bar{
@@ -208,7 +218,54 @@ main{
 }
 
 .attribution a{
-
   color: white;
   text-decoration: none;
+}
+
+@keyframes slide{
+  from{
+    transform: translateX(100%);
+  }
+  to{
+    transform: translateX(0%);
+  }
+}
+
+@media (min-width:768px){
+  header{
+    width: 100%;
+  }
+  
+  #nav-button{
+    display: none;
+  }
+
+  #close-bar{
+    display: none;
+  }
+
+  #navigation{
+    display: block;
+    position: relative;
+    background-color: transparent;
+    height: 100%;
+  }
+
+  #bar-container{
+    transform: translateX(0%);
+    width: auto;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  #nav-menu{
+    display: flex;
+    margin: 0;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-list{
+    margin: 0;
+  }
 }

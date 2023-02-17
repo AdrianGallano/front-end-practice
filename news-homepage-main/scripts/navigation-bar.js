@@ -1,26 +1,39 @@
 const navButton = document.getElementById("nav-button");
 const navigation = document.getElementById("navigation");
+const barContainer = document.getElementById("bar-container");
 const closeButton = document.getElementById("close-bar");
 const navItems = document.getElementById("nav-menu").children;
+const header = document.getElementsByTagName("header")
 
 Array.from(navItems).forEach((item) => item.addEventListener("click", close))
 navButton.addEventListener("click", open)
 closeButton.addEventListener("click", close)
 
+window.addEventListener("resize", () => {
+  barContainer.style.transform = `translateX(0%)`
+})
+
 window.addEventListener("scroll", () => {
-  if(navigation.style.display == "block"){
-    navigation.style.top = `${window.scrollY}px`;
+  if (window.scrollY > 0) {
+    header[0].style.backgroundColor = "var(--off-white-opac-50)"
+  } else {
+    header[0].style.backgroundColor = ""
   }
 })
 
-function open(){
-  console.log("here")
+function open() {
   navButton.style.transform = `rotateZ(-90deg)`;
   navigation.style.display = "block";
-  navigation.style.top = `${window.scrollY}px`;
+  barContainer.style.transform = "translateX(0%)"
 }
 
-function close(){
-  navButton.style.transform = `rotateZ(0deg)`;
-  navigation.style.display = "none";
+function close() {
+  if (document.documentElement.clientWidth < 768) {
+    navButton.style.transform = `rotateZ(0deg)`;
+    closeButton.style.transform = `rotateZ(90deg)`;
+    barContainer.style.transform = `translateX(100%)`
+    setTimeout(() => {
+      navigation.style.display = "";
+    }, 200)
+  }
 }
