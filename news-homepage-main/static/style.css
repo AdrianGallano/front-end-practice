@@ -31,6 +31,10 @@ p{
   line-height: 24px;
 }
 
+a{
+  cursor: pointer;
+}
+
 /* navigation */
 
 header{
@@ -231,6 +235,7 @@ main{
 }
 
 @media (min-width:768px){
+  /* Navigation */
   header{
     width: 100%;
   }
@@ -266,5 +271,68 @@ main{
 
   .nav-list{
     margin: 0;
+  }
+
+  /* Main Content */
+  body{
+    padding: 3rem 3rem;
+  }
+
+  main{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+
+    gap: 2rem;
+  }
+
+  .introduction-section{
+    padding: 0;
+  }
+
+  #header-paragraph-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  #header-title{
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+
+
+  #header-inner-paragraph-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+  }
+
+  #header-inner-paragraph-container > p{
+    font-size: 1.1rem;
+    line-height: 2rem;
+  }
+
+  .latest-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .latest-article{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+
+  .card-section{
+    flex-direction: row;
+    gap: 1rem;
+    grid-column: span 2;
+  }
+
+  .attribution{
+    margin: 0 -3rem -3rem -3rem;
   }
 }
