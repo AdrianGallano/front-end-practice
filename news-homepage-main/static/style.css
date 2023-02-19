@@ -34,6 +34,7 @@ p{
 a{
   cursor: pointer;
   text-decoration: none;
+  color: var(--very-dark-blue);
 }
 
 /* navigation */
@@ -207,6 +208,8 @@ main{
 
 .card-title{
   font-size: 1rem;
+  font-weight: 700;
+  color: var(--very-dark-blue);
 }
 
 .card-paragraph{
@@ -228,6 +231,8 @@ main{
 
 .nav-link:hover,
 .nav-link:active,
+.card-title:hover,
+.card-title:active,
 .latest-article-title:hover,
 .latest-article-title:active{
   color: var(--soft--orange);
