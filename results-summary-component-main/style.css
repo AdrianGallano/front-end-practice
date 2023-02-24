@@ -177,11 +177,28 @@ a{
 
 }
 
+.attribution{
+  text-align: center;
+  padding-block: 1rem;
+  background-color: var(--Dark-gray-blue);
+  color: var(--Light-lavender);
+}
+
+.attribution a{
+  color: var(--Light-lavender);
+}
+
 @media (min-width: 768px){
   body{
     display: flex;
+    flex-direction: column;
+  }
+  
+  main{
+    display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1;
   }
   
   .card{
@@ -204,5 +221,6 @@ a{
     border-bottom-right-radius: var(--border-radius);
     box-shadow: 1px 10px 20px hsla(224, 30%, 27%, .3);;
   }
-  
+
+
 }
