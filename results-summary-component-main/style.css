@@ -1,9 +1,13 @@
+@import url("./../node_modules/normalize.css/normalize.css");
+
+
 :root{
   /* colors */
   --Light-red: hsl(0, 100%, 67%);
   --Orangey-yellow: hsl(39, 100%, 56%);
   --Green-teal: hsl(166, 100%, 37%);
   --Cobalt-blue: hsl(234, 85%, 45%);
+
   --Light-slate-blue: hsl(252, 100%, 67%);
   --Light-royal-blue: hsl(241, 81%, 54%);
   --Violet-blue: hsla(256, 72%, 46%, 1);
@@ -12,18 +16,19 @@
   --Light-lavender: hsl(241, 100%, 89%);
   --Dark-gray-blue: hsl(224, 30%, 27%);
   
-  --border-radius: 20px;
+  --border-radius: 30px;
   
   /* general style */
   text-rendering: optimizeSpeed;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 200ms;
+
 }
 
 body{
@@ -31,32 +36,9 @@ body{
   max-width: 100%;
 }
 
-
-/* 
-.card
-
-.card-header
-
-.card-your-result
-
-.card-header-score-container
-
-.card-header-accumulated-score
-.card-header-total-score
-
-.card-header-feedback
-.card-header-feedback-description
-
-.card-description
-
-.card-description-title
-.card-description-item
-
-.card-description-item-name
-.card-description-item-score
-
-.card-description-button
-*/
+a{
+  text-decoration: none;
+}
 
 .card{
   display: flex;
@@ -68,7 +50,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom, var(--Light-slate-blue) 10%, var(--Light-royal-blue));
+  background: linear-gradient(to bottom, var(--Light-slate-blue), var(--Light-royal-blue));
 
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   padding: 2rem 3rem;
@@ -88,7 +70,7 @@ body{
   height: 130px;
   width: 130px;
 
-  margin: 2rem;
+  margin: 1rem;
   background-image: linear-gradient(to bottom, var(--Violet-blue), var(--Persian-blue));
   border-radius: 50%;
 }
@@ -104,15 +86,123 @@ body{
   opacity: .7;
 }
 
-
 .card-header-feedback{
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--Pale-blue);
   margin-bottom: .5rem;
 }
 
 .card-header-feedback-description{
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
   color: var(--Light-lavender);
+}
+
+.card-description{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: 1.5rem;
+}
+
+.card-description-title{
+  color: var(--Dark-gray-blue);
+  font-size: 1rem;
+}
+
+.card-description-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+
+}
+
+
+.card-description-head-holder{
+  display: flex;
+  gap: 1rem;
+}
+
+.card-description-item:nth-of-type(1){
+  color: var(--Light-red);
+  background-color: hsla(0, 100%, 67%, .2);
+}
+
+.card-description-item:nth-of-type(2){
+  color: var(--Orangey-yellow);
+  background-color: hsla(39, 100%, 56%, .2);
+}
+
+.card-description-item:nth-of-type(3){
+  color: var(--Green-teal);
+  background-color: hsla(166, 100%, 37%, .2);
+}
+
+.card-description-item:nth-of-type(4){
+  color: var(--Cobalt-blue);
+  background-color: hsla(234, 85%, 45%, .2);
+}
+
+.card-description-item-name{
+  font-size: .9rem;
+}
+
+.card-description-item-score{
+  font-weight: bolder;
+  color: grey;
+  font-size: .9rem;
+}
+
+.card-description-item-score .score{
+  color: var(--Dark-gray-blue);
+}
+
+.card-description-button{
+  color: var(--Pale-blue);
+  background-color: var(--Dark-gray-blue);
+  border-radius: var(--border-radius);
+  text-align: center;
+  padding-block: 1rem;
+  font-weight: 500;
+
+}
+
+.card-description-button:hover,
+.card-description-button:active{
+  background-color: var(--Dark-gray-blue);
+  background-image: linear-gradient(to bottom, var(--Light-slate-blue), var(--Light-royal-blue));
+  cursor: pointer;
+
+}
+
+@media (min-width: 768px){
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card{
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    width: clamp(650px, 60%, 700px);
+  }
+
+  .card-header{
+    border-radius: var(--border-radius);
+    flex: 2;
+    z-index: 1;
+    transform: translateX(3%);
+    justify-content: space-around;
+  }
+  .card-description{
+    flex: 3;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    box-shadow: 1px 10px 20px hsla(224, 30%, 27%, .3);;
+  }
+  
 }
